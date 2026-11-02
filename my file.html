@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Khalid Ibrahim - BCA Student and Web Designer Portfolio">
+<title>Khalid Ibrahim | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #070711;
+    color: white;
+    line-height: 1.6;
+}
+
+:root {
+    --cyan: #00f5ff;
+    --purple: #9167ff;
+    --pink: #ff36c7;
+    --muted: #aaa8c3;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #070711e8;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #ffffff20;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    color: #aaa8c3;
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+section {
+    min-height: 100vh;
+    padding: 120px 9% 70px;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h1 span, h2 span {
+    background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+p {
+    color: var(--muted);
+    max-width: 650px;
+}
+
+.small-title {
+    color: var(--cyan);
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile {
+    width: 100%;
+    max-width: 330px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 5px solid var(--cyan);
+    box-shadow: 0 0 45px #00f5ff50;
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border-radius: 9px;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    color: #070711;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+.btn.secondary {
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: white;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.center p {
+    margin: auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 18px;
+    background: #121225;
+    border: 1px solid #ffffff20;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px #00f5ff20;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.icon {
+    font-size: 35px;
+}
+
+.info {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.info div {
+    background: #121225;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ffffff20;
+}
+
+.info strong {
+    color: var(--cyan);
+    margin-right: 10px;
+}
+
+.hobbies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact {
+    margin-top: 35px;
+    padding: 35px;
+    border-radius: 20px;
+    background: #121225;
+    border: 1px solid var(--cyan);
+    text-align: center;
+    box-shadow: 0 0 35px #00f5ff15;
+}
+
+.contact-details {
+    display: grid;
+    gap: 15px;
+    margin: 25px auto;
+    max-width: 600px;
+}
+
+.contact-item {
+    padding: 15px;
+    border: 1px solid #ffffff25;
+    border-radius: 12px;
+    background: #ffffff08;
+    overflow-wrap: anywhere;
+}
+
+.contact-item a {
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--pink);
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid #ffffff20;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .8s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero p {
+        margin: auto;
+    }
+
+    .profile {
+        margin-top: 25px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section {
+        padding: 110px 6% 60px;
+    }
+}
+
+@media(max-width: 520px) {
+    header {
+        padding: 15px 4%;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .cards, .hobbies {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">KHALID<span>.</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#interests">Interests</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- PAGE 1: HOME -->
+
+<section id="home">
+    <div class="container hero">
+
+        <div class="reveal">
+            <div class="small-title">WELCOME TO MY PORTFOLIO</div>
+
+            <h1>
+                Hello, I'm<br>
+                <span>Khalid Ibrahim</span>
+            </h1>
+
+            <h3>BCA Student | Aspiring Web Designer</h3>
+
+            <p>
+                I am passionate about technology, creative design
+                and learning new skills. I enjoy building modern
+                websites and creating digital experiences.
+            </p>
+
+            <div class="buttons">
+                <a href="#skills" class="btn">My Skills</a>
+                <a href="#about" class="btn secondary">About Me</a>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <img src="./khalid.jpeg"
+                 alt="Khalid Ibrahim Profile Photo"
+                 class="profile">
+        </div>
+
+    </div>
+</section>
+
+<!-- PAGE 2: ABOUT -->
+
+<section id="about">
+    <div class="container">
+
+        <div class="center reveal">
+            <div class="small-title">ABOUT ME</div>
+            <h2>My <span>Story</span></h2>
+            <p>
+                I am a Bachelor of Computer Applications student
+                interested in web design and technology.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card reveal">
+                <div class="icon">🎓</div>
+                <h3>Education</h3>
+                <p>Bachelor of Computer Applications (BCA).</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">💻</div>
+                <h3>Career Goal</h3>
+                <p>To become a professional web designer.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">🚀</div>
+                <h3>My Goal</h3>
+                <p>To improve my skills and create useful websites.</p>
+            </div>
+
+        </div>
+
+        <div class="info reveal">
+            <div><strong>Name:</strong> Khalid Ibrahim</div>
+            <div><strong>Course:</strong> BCA</div>
+            <div><strong>Field:</strong> Web Design</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PAGE 3: SKILLS -->
+
+<section id="skills">
+    <div class="container">
+
+        <div class="center reveal">
+            <div class="small-title">WHAT I CAN DO</div>
+            <h2>My <span>Skills</span></h2>
+            <p>My skills and technologies I am learning.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card reveal">
+                <div class="icon">🌐</div>
+                <h3>Website Design</h3>
+                <p>Creating attractive and user-friendly websites.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">〈/〉</div>
+                <h3>HTML</h3>
+                <p>Building the structure of web pages.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Designing websites with colors and layouts.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Adding interactive features to websites.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">✨</div>
+                <h3>Creative Design</h3>
+                <p>Exploring modern designs and creative ideas.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">📚</div>
+                <h3>Learning</h3>
+                <p>Always learning and improving my abilities.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PAGE 4: INTERESTS AND CONTACT -->
+
+<section id="interests">
+    <div class="container">
+
+        <div class="center reveal">
+            <div class="small-title">BEYOND TECHNOLOGY</div>
+            <h2>My <span>Interests</span></h2>
+        </div>
+
+        <div class="hobbies">
+
+            <div class="card reveal">
+                <div class="icon">⚽</div>
+                <h3>Football</h3>
+                <p>I enjoy playing and watching football.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">✈️</div>
+                <h3>Travel</h3>
+                <p>I love travelling and exploring new places.</p>
+            </div>
+
+        </div>
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact reveal">
+
+            <div class="small-title">GET IN TOUCH</div>
+
+            <h2>Contact <span>Me</span></h2>
+
+            <p>
+                Feel free to contact me through email
+                or WhatsApp.
+            </p>
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+                    📧 <strong>Email:</strong><br>
+                    <a href="mailto:Khalid0909827514@gmail.com">
+                        Khalid0909827514@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    📱 <strong>Phone / WhatsApp:</strong><br>
+                    <a href="https://wa.me/917680045576"
+                       target="_blank"
+                       rel="noopener">
+                        +91 7680045576
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="buttons" style="justify-content:center">
+
+                <a class="btn"
+                   href="mailto:Khalid0909827514@gmail.com">
+                    Send Email
+                </a>
+
+                <a class="btn secondary"
+                   href="https://wa.me/917680045576"
+                   target="_blank"
+                   rel="noopener">
+                    WhatsApp Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    © <span id="year"></span> Khalid Ibrahim. All Rights Reserved.
+</footer>
+
+<script>
+
+// Automatic year
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
